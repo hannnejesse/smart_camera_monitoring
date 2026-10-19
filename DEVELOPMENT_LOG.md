@@ -71,3 +71,54 @@ For each development step, record:
 - Errors, troubleshooting, and corrective actions.
 - Git commit identifier after the change is committed.
 
+## Test 001 — ESP32-S3 Basic Boot and Serial Test
+
+**Date:** 2026-10-18
+
+### Objective
+Verify that the ESP32-S3 Wokwi simulation boots correctly and that the firmware can print status messages through the Serial Monitor.
+
+### Test Setup
+- Platform: Wokwi browser
+- Target: ESP32-S3 DevKitC-1 simulation
+- Firmware file: `sketch.ino`
+- Serial baud rate: 115200
+- Test interval: 2000 ms
+
+### Test Procedure
+1. Started the ESP32-S3 Wokwi simulation.
+2. Opened the Serial Monitor.
+3. Observed the ESP32 boot messages.
+4. Verified the application startup message.
+5. Verified repeated monitoring messages.
+
+### Expected Result
+The ESP32-S3 should boot and continuously print:
+
+`Smart Camera Monitoring Started`
+
+followed by:
+
+`Monitoring for activity...`
+
+approximately every 2 seconds.
+
+### Actual Result
+The ESP32-S3 booted successfully.
+
+Observed output included:
+
+`Smart Camera Monitoring Started`
+
+`Monitoring for activity...`
+
+The monitoring message continued to repeat.
+
+### Result
+**PASS**
+
+### Notes
+The ESP32-S3 simulation, firmware startup, serial communication, and continuous loop operation are functioning correctly.
+
+### Next Step
+Implement the first activity-trigger input and test event-driven monitoring instead of continuous status reporting.
