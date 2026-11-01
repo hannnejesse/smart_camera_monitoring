@@ -122,3 +122,41 @@ The ESP32-S3 simulation, firmware startup, serial communication, and continuous 
 
 ### Next Step
 Implement the first activity-trigger input and test event-driven monitoring instead of continuous status reporting.
+
+## Test 002 — PIR Activity Trigger Setup
+
+### Objective
+Add a PIR motion sensor as the first activity-trigger input for the ESP32-S3 prototype.
+
+### Component
+- Sensor: HC-SR501 PIR motion sensor
+- Controller: ESP32-S3-DevKitC-1
+
+### Connections
+| PIR Pin | ESP32-S3 Pin | Function |
+|---|---|---|
+| VCC | 5V | Sensor power |
+| OUT | GPIO4 | Digital activity signal |
+| GND | GND | Common ground |
+
+### Design Reason
+The PIR is being used as the first simulation method for detecting activity. The purpose is to test an event-driven capture architecture before introducing the camera and image-processing stages.
+
+### Current Status
+PIR hardware setup completed in Wokwi.
+
+### Test Status
+NOT TESTED — firmware has not yet been modified to read GPIO4.
+
+- Result: PASS
+- Simulation: Wokwi
+- Startup messages appeared correctly.
+- Triggered motion using the Wokwi PIR sensor's "Trigger Motion" control.
+- ESP32-S3 printed "ACTIVITY DETECTED".
+- Event detection worked on a LOW-to-HIGH transition.
+
+### Next Step
+Modify the ESP32-S3 firmware to monitor GPIO4 and report activity detection through the Serial Monitor.
+
+### Next Step
+Develop the camera activation logic following successful PIR activity detection.
