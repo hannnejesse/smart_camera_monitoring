@@ -160,3 +160,35 @@ Modify the ESP32-S3 firmware to monitor GPIO4 and report activity detection thro
 
 ### Next Step
 Develop the camera activation logic following successful PIR activity detection.
+
+## Test 003 — Motion-Triggered Camera Activation Indicator
+
+### Objective
+Activate an LED when the PIR sensor detects motion, representing the camera activation signal.
+
+### Hardware Configuration
+- Controller: ESP32-S3-DevKitC-1
+- PIR sensor output: GPIO4
+- Camera activation indicator: GPIO5
+- LED resistor: 220 ohms
+
+### Firmware Changes
+- Added GPIO5 as an output.
+- Added LED activation when PIR changes from LOW to HIGH.
+- Added LED deactivation when PIR returns from HIGH to LOW.
+
+### Test Environment
+- Wokwi simulation
+
+### Test Result
+- Result: PASS
+- Motion detection message appeared.
+- Camera activation signal ON appeared.
+- Camera activation signal OFF appeared.
+- Multiple motion events were detected successfully.
+
+### Limitation
+The LED represents the camera activation signal. Actual camera capture has not yet been implemented.
+
+### Next Step
+Develop the camera capture workflow and investigate ESP32-S3 camera simulation options.
