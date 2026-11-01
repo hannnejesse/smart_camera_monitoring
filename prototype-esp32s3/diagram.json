@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-s3-devkitc-1", "id": "esp1", "top": 60, "left": 235.92, "attrs": {} },
+    { "type": "wokwi-pir-motion-sensor", "id": "pir1", "top": 64.18, "left": 89.57, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 133.38,
+      "left": 23.95,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 218.58,
+      "left": 10,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    }
+  ],
+  "connections": [
+    [ "pir1:GND", "esp1:GND.1", "black", [ "v0" ] ],
+    [ "pir1:VCC", "esp1:5V", "red", [ "v0" ] ],
+    [ "esp1:4", "pir1:OUT", "green", [ "h-28.85", "v57.6", "h-76.8" ] ],
+    [ "led1:C", "r1:1", "green", [ "v0" ] ],
+    [
+      "r1:2",
+      "esp1:GND.2",
+      "green",
+      [ "h0", "v27.6", "h-19.2", "v-201.6", "h0", "v-76.8", "h355.2", "v76.8" ]
+    ],
+    [ "led1:A", "esp1:5", "green", [ "v9.6", "h9.6", "v-153.6", "h144", "v105.6" ] ]
+  ],
+  "dependencies": {}
+}
