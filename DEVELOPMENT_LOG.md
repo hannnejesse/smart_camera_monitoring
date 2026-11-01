@@ -192,3 +192,73 @@ The LED represents the camera activation signal. Actual camera capture has not y
 
 ### Next Step
 Develop the camera capture workflow and investigate ESP32-S3 camera simulation options.
+
+## Test 004 — Motion-Triggered Camera Capture Request
+
+### Objective
+Generate a simulated camera capture request when motion is detected.
+
+### Firmware Changes
+- Added CAMERA CAPTURE REQUESTED serial message.
+- Retained GPIO5 LED activation and deactivation.
+- Retained GPIO4 PIR motion detection.
+
+### Test Environment
+Wokwi ESP32-S3 simulation.
+
+### Test Result
+PASS
+- Activity detected successfully.
+- Camera activation signal ON.
+- Camera capture request generated.
+- Camera activation signal OFF.
+
+### Limitation
+This test generates a simulated capture request. Actual image capture is not implemented or verified.
+
+### Next Step
+Add event monitoring and event counting.
+
+## Test 005 — Motion Event Counting
+
+### Objective
+Count each new motion detection event.
+
+### Firmware Changes
+- Added motionEventCount variable.
+- Incremented the counter on each LOW-to-HIGH transition.
+- Printed the event number in Serial Monitor.
+
+### Test Environment
+Wokwi ESP32-S3 simulation.
+
+### Test Result
+PASS
+- First motion event counted as 1.
+- Second motion event counted as 2.
+- Capture request generated for both events.
+- LED switched OFF between events.
+
+### Limitation
+Event count resets when the ESP32 restarts. Events are not permanently stored.
+
+### Next Step
+Perform complete integration testing.
+
+## Test 006 — Dust Protection Design
+
+### Objective
+Define a protection concept for the camera in a dusty rice-barn environment.
+
+### Proposed Design
+- Enclosed camera housing to reduce dust exposure.
+- Transparent protective window in front of the lens.
+- Removable window for cleaning and maintenance.
+- Small soft-brush mechanism to remove accumulated dust.
+- Camera activation only when motion is detected to reduce unnecessary operation.
+
+### Test Status
+Design documented only. No physical enclosure or cleaning mechanism has been built or tested.
+
+### Next Step
+Final GitHub review and project completion.
