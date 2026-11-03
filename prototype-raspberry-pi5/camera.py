@@ -9,7 +9,7 @@ def capture_image(frame):
 
     os.makedirs(capture_folder, exist_ok=True)
 
-    filename = datetime.now().strftime("capture_%Y%m%d_%H%M%S.jpg")
+    filename = datetime.now().strftime("capture_%Y%m%d_%H%M%S_%f.jpg")
     filepath = os.path.join(capture_folder, filename)
 
     cv2.imwrite(filepath, frame)

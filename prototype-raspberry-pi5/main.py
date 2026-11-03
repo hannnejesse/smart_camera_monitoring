@@ -6,26 +6,60 @@ from camera import capture_image
 
 print("SMART CAMERA MONITORING")
 print("Raspberry Pi 5 Prototype")
-print("System Started Successfully")
+print("Continuous Monitoring Started")
 
-# Simulate two camera frames
-previous_frame = np.zeros((480, 640, 3), dtype=np.uint8)
+# Create an empty camera frame
+blank_frame = np.zeros((480, 640, 3), dtype=np.uint8)
 
-current_frame = previous_frame.copy()
+# Generate simulated camera frames
+frames = []
 
-# Simulate movement in the second frame
-cv2.rectangle(current_frame, (100, 100), (200, 200), (255, 255, 255), -1)
+# No motion
+frames.extend([blank_frame.copy()] * 3)
 
-print("Checking for motion...")
+# First movement
+for x in [50, 70, 90]:
+    frame = blank_frame.copy()
+    cv2.rectangle(frame, (x, 100), (x + 50, 150),
+                  (255, 255, 255), -1)
+    frames.append(frame)
 
-# Detect motion
-motion_detected = detect_motion(previous_frame, current_frame)
+# No motion
+frames.extend([blank_frame.copy()] * 3)
 
-if motion_detected:
-    print("MOTION DETECTED!")
-    print("Triggering image capture...")
-    capture_image(current_frame)
-else:
-    print("No motion detected.")
+# Second movement
+for x in [150, 170, 190]:
+    frame = blank_frame.copy()
+    cv2.rectangle(frame, (x, 200), (x + 50, 250),
+                  (255, 255, 255), -1)
+    frames.append(frame)
 
-print("Monitoring test completed.")
+previous_frame = frames[0]
+motion_active = False
+event_count = 0
+
+# Continuous monitoring simulation
+for current_frame in frames[1:]:
+
+    motion_detected = detect_motion(
+        previous_frame, current_frame
+    )
+
+    if motion_detected and not motion_active:
+
+        event_count += 1
+
+        print("MOTION EVENT:", event_count)
+        print("CAPTURE REQUESTED")
+
+        capture_image(current_frame)
+
+        motion_active = True
+
+    elif not motion_detected:
+        motion_active = False
+
+    previous_frame = current_frame
+
+print("Monitoring completed.")
+print("TOTAL MOTION EVENTS:", event_count)

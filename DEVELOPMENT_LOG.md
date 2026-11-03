@@ -327,3 +327,16 @@ Development is currently being performed on Windows using simulated camera input
 
 ### Current Limitation
 Camera input is simulated using generated image frames on Windows. Physical Raspberry Pi 5 camera testing remains pending.
+
+## Raspberry Pi 5 – Multi-Event Motion Detection Test
+
+- Implemented simulation of multiple camera frames.
+- Tested two separate movement events with periods of no motion between them.
+- Motion detection successfully identified 2 separate events.
+- Each event triggered an image capture request.
+- Fixed image filename collision by adding microseconds (`%f`) to timestamps.
+- Verified that two separate JPG images were saved in `prototype-raspberry-pi5/captures/`.
+
+**Test Result: PASS**
+
+**Limitation:** Tested using simulated frames on Windows with Python and OpenCV. Physical Raspberry Pi 5 and camera testing is pending.
