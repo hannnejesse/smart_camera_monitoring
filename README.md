@@ -72,3 +72,7 @@ The software prototype was tested on Windows using simulated camera frames. Two 
 
 **Current limitation:** Physical Raspberry Pi 5 and camera testing is pending.
 
+## Project Presentations
+
+- [ESP32 Smart Camera Monitoring](presentations/ESP32%20Smart%20Camera%20Monitoring.pptx)
+- [Raspberry Pi Smart Camera Monitoring](presentations/Rasberry%20Pi%20Smart%20Camera%20Monitoring.pptx)
