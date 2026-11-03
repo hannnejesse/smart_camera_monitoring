@@ -4,11 +4,13 @@ from datetime import datetime
 
 def capture_image(frame):
 
-    os.makedirs("captures", exist_ok=True)
+    project_folder = os.path.dirname(os.path.abspath(__file__))
+    capture_folder = os.path.join(project_folder, "captures")
+
+    os.makedirs(capture_folder, exist_ok=True)
 
     filename = datetime.now().strftime("capture_%Y%m%d_%H%M%S.jpg")
-
-    filepath = os.path.join("captures", filename)
+    filepath = os.path.join(capture_folder, filename)
 
     cv2.imwrite(filepath, frame)
 
