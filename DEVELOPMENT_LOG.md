@@ -305,3 +305,25 @@ Actual camera capture and physical hardware testing are pending.
 
 ### Development Limitation
 Development is currently being performed on Windows using simulated camera input. Actual Raspberry Pi 5 hardware and camera operation have not yet been tested.
+
+## Raspberry Pi 5 – Image Storage and Git Configuration
+
+### Image Storage
+- Updated camera.py to save images inside the prototype-raspberry-pi5/captures directory.
+- Verified timestamp-based JPG image creation.
+- Confirmed the captured image is visible and accessible.
+
+### Git Configuration
+- Created a root-level .gitignore file.
+- Added rules to ignore Python cache files.
+- Added rules to ignore generated captures folders.
+- Verified generated image folders no longer appear as untracked files.
+
+### Verification
+- Correct image storage location: PASS
+- JPG image creation: PASS
+- Python cache ignore rule: CONFIGURED
+- Generated capture folder ignore rule: CONFIGURED
+
+### Current Limitation
+Camera input is simulated using generated image frames on Windows. Physical Raspberry Pi 5 camera testing remains pending.
