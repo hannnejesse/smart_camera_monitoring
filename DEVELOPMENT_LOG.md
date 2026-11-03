@@ -277,3 +277,31 @@ The complete ESP32-S3 simulation was successfully tested in Wokwi.
 
 ### Limitations
 Actual camera capture and physical hardware testing are pending.
+
+
+## Raspberry Pi 5 Prototype – Development Progress
+
+### Environment Setup
+- Python 3.14.10 installed successfully.
+- pip verified.
+- OpenCV 5.0.0 installed and import tested successfully.
+- NumPy 2.5.4 installed.
+- VS Code Python extension installed.
+
+### Initial Development
+- Created `prototype-raspberry-pi5/main.py`.
+- Verified Python program execution successfully.
+- Created `prototype-raspberry-pi5/motion_detection.py` for frame-difference-based motion detection.
+- Created `prototype-raspberry-pi5/camera.py` for timestamped image storage.
+
+### Current Status
+- Python environment: PASS
+- OpenCV import: PASS
+- Initial Python program: PASS
+- Motion detection module: CREATED – testing pending
+- Camera image-saving module: CREATED – testing pending
+- End-to-end integration: PENDING
+- Physical Raspberry Pi 5 and camera testing: PENDING
+
+### Development Limitation
+Development is currently being performed on Windows using simulated camera input. Actual Raspberry Pi 5 hardware and camera operation have not yet been tested.
