@@ -43,6 +43,32 @@ The ESP32-S3 prototype was tested in Wokwi. Motion detection, event counting, LE
 - Develop a Raspberry Pi 5 prototype for comparison.
 
 ## Repository Structure
-- `prototype-esp32s3/sketch.ino` — ESP32-S3 firmware
-- `prototype-esp32s3/diagram.json` — Wokwi circuit
-- `DEVELOPMENT_LOG.md` — Development history and testing records
+
+- `prototype-esp32s3/` — ESP32-S3 Arduino C++ firmware and Wokwi circuit
+- `prototype-raspberry-pi5/` — Raspberry Pi 5 Python and OpenCV prototype
+- `DEVELOPMENT_LOG.md` — Development history, modifications, and testing records
+- `README.md` — Project overview and documentation
+
+## Raspberry Pi 5 Prototype
+
+- **Platform:** Raspberry Pi 5
+- **Programming:** Python
+- **Libraries:** OpenCV, NumPy
+- **Development environment:** Windows 11 (software simulation)
+- **Testing:** Simulated camera frames
+
+### Implemented Features
+
+- Frame-difference motion detection
+- Motion event counting
+- Multiple motion event detection
+- Event-triggered image capture
+- Automatic image storage
+- Unique timestamp-based image filenames
+
+### Testing
+
+The software prototype was tested on Windows using simulated camera frames. Two separate motion events were detected, and two separate JPG images were successfully saved.
+
+**Current limitation:** Physical Raspberry Pi 5 and camera testing is pending.
+
